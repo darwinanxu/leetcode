@@ -14,7 +14,6 @@ Input: nums = [7,7], k = 1
 Output: [7]
 
 Constraints:
-
 1 <= nums.length <= 10^4.
 -1000 <= nums[i] <= 1000
 1 <= k <= number of distinct elements in nums.
