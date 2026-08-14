@@ -73,3 +73,35 @@ class Solution:
 
         return result
 
+# Using list.append() and "".join() is more space-efficient 
+# than repeatedly concatenating strings with +
+class Solution2:  
+    def encode(self, strs: List[str]) -> str:
+        encode_list = []
+
+        for s in strs:
+            encode_list.append(str(len(s)))
+            encode_list.append("#")
+            encode_list.append(s)
+
+        return "".join(encode_list)
+
+
+    def decode(self, s: str) -> List[str]:
+        decode_list = []
+        i = 0
+
+        while i < len(s):
+            j = i
+            while s[j] != "#":
+                j += 1
+            
+            str_len = int(s[i:j])
+            str_start = j + 1
+            str_end = str_start + str_len -1
+            string = s[str_start : str_end + 1]
+
+            decode_list.append(string)
+            i = str_end + 1
+
+        return decode_list
