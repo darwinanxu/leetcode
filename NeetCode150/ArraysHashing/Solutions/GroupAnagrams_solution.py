@@ -35,3 +35,20 @@ class Solution:
             groups[key].append(s)
         
         return list(groups.values())
+
+class Solution2:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        groups = defaultdict(list)        
+
+        for s in strs:
+            char_counts = [0] * 26
+
+            for char in s:
+                index = ord(char) - ord("a")
+                char_counts[index] += 1
+            
+            key = tuple(char_counts)
+            groups[key].append(s)
+
+        return list(groups.values())
+
